@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../cubit/weather_state.dart';
+import '../../bloc/weather_state.dart';
 
 class WeatherTimesWidget extends StatelessWidget {
   final WeatherState state;

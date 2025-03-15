@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../cubit/weather_state.dart';
+import '../../bloc/weather_state.dart';
 
 class WeatherCurrentDataWidget extends StatelessWidget {
   final WeatherState state;

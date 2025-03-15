@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:weather/weather/views/widgets/weather_current_data_widget.dart';
 import 'package:weather/weather/views/widgets/weather_time_widget.dart';
 
-import '../../cubit/weather_state.dart';
+import '../../bloc/weather_state.dart';
 
 class SuccessWidget extends StatelessWidget {
   final WeatherState state;

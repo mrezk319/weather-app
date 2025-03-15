@@ -1,13 +1,18 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:weather/weather/cubit/weather_cubit.dart';
+import 'package:weather/weather/bloc/weather_events.dart';
+
+import '../../bloc/weather_bloc.dart';
 
 class SearchCustomField extends StatelessWidget {
-  const SearchCustomField({
+  SearchCustomField({
     super.key,
-    required this.cubit,
+    required this.bloc,
   });
 
-  final WeatherCubit cubit;
+  final WeatherBloc bloc;
+  Timer? _debounce;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +36,14 @@ class SearchCustomField extends StatelessWidget {
       autofocus: true,
       onChanged: (String value) {
         if (value.isNotEmpty && value.length > 2) {
-          cubit.getWeatherData(value);
+          if (_debounce != null || (_debounce?.isActive ?? false)) {
+            _debounce!.cancel();
+          }
+          _debounce = Timer(const Duration(milliseconds: 500), () {
+            bloc.add(GetWeatherDataEvent(city: value));
+          });
         } else {
-          cubit.clearApiError();
+          bloc.add(ClearApiErrorEvent());
         }
       },
     );

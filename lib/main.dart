@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather/utils/dio_services.dart';
-import 'package:weather/weather/cubit/weather_cubit.dart';
-import 'package:weather/weather/cubit/weather_state.dart';
+import 'package:weather/weather/bloc/weather_bloc.dart';
+import 'package:weather/weather/bloc/weather_events.dart';
+import 'package:weather/weather/bloc/weather_state.dart';
 import 'package:weather/weather/repos/weather_repo_impl.dart';
 import 'package:weather/weather/views/weather_view.dart';
 
@@ -17,13 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => WeatherCubit(
+      create: (context) => WeatherBloc(
           weatherRepository: ApiWeatherRepository(
         dioClient: DioClient(),
       ))
-        ..getCurrentLocation(),
-      child: BlocSelector<WeatherCubit, WeatherState, Color?>(
-        selector: (state) => state.BGColor,
+        ..add(GetCurrentLocationEvent()),
+      child: BlocSelector<WeatherBloc, WeatherState, Color?>(
+        selector: (state) => state.bGColor,
         builder: (context, state) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,

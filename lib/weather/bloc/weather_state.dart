@@ -11,14 +11,14 @@ final class WeatherState extends Equatable {
   WeatherModel? weatherModel;
   WeatherFailure? weatherFailure;
   bool? isSearch;
-  Color? BGColor;
+  Color? bGColor;
 
   WeatherState({
     this.weatherStateStatus,
     this.weatherModel,
     this.weatherFailure,
     this.isSearch,
-    this.BGColor,
+    this.bGColor,
   });
 
   WeatherState clearError() {
@@ -27,7 +27,7 @@ final class WeatherState extends Equatable {
       weatherStateStatus: weatherStateStatus,
       weatherFailure: null,
       isSearch: isSearch,
-      BGColor: BGColor,
+      bGColor: bGColor,
     );
   }
 
@@ -43,7 +43,7 @@ final class WeatherState extends Equatable {
       weatherStateStatus: weatherStateStatus ?? this.weatherStateStatus,
       weatherFailure: weatherFailure ?? this.weatherFailure,
       isSearch: isSearch ?? this.isSearch,
-      BGColor: BGColor ?? this.BGColor,
+      bGColor: BGColor ?? this.bGColor,
     );
   }
 
@@ -53,6 +53,6 @@ final class WeatherState extends Equatable {
         weatherModel,
         weatherFailure,
         isSearch,
-        BGColor,
+        bGColor,
       ];
 }
