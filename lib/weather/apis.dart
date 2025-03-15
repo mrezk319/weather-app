@@ -1,0 +1,1 @@
+String weatherApi = "https://api.weatherapi.com/v1/forecast.json?days=1&aqi=no&alerts=no";
