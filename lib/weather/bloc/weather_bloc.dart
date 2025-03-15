@@ -32,7 +32,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
           weatherStateStatus: WeatherStateStatus.fail,
           weatherFailure: error is WeatherFailure
               ? error
-              : WeatherFailure(message: error.toString(), code: 0),
+              : WeatherFailure(message: error.toString()),
         ));
       }
     });

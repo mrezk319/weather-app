@@ -21,7 +21,6 @@ class ApiWeatherRepository implements WeatherRepository {
     } catch (e) {
       throw WeatherFailure(
         message: e.toString(),
-        code: 500,
       );
     }
   }

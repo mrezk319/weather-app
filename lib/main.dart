@@ -6,6 +6,7 @@ import 'package:weather/weather/bloc/weather_bloc.dart';
 import 'package:weather/weather/bloc/weather_events.dart';
 import 'package:weather/weather/bloc/weather_state.dart';
 import 'package:weather/weather/repos/weather_repo_impl.dart';
+import 'package:weather/weather/repos/weather_repo_mock.dart';
 import 'package:weather/weather/views/weather_view.dart';
 
 void main() {
