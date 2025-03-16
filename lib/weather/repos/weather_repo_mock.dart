@@ -11,8 +11,9 @@ class MockWeatherRepository implements WeatherRepository {
 
   @override
   Future<WeatherModel> getWeather(String city) async {
+    
     await Future.delayed(
-        const Duration(milliseconds: 500)); // Simulate network delay
+        const Duration(milliseconds: 500));
 
     if (city.toLowerCase() != 'cairo') {
       throw WeatherFailure(message: 'City not found');
